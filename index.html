@@ -60,38 +60,112 @@
       :class="isScrolled ? 'border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-md' : 'border-transparent bg-transparent'"
       class="sticky top-0 z-50 border-b transition-colors duration-200"
     >
-      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:gap-8">
-        <a href="#overview" class="group inline-flex items-center gap-3">
-          <span
-            class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-sm font-bold tracking-[0.18em] text-white shadow-sm transition group-hover:bg-slate-800"
-            x-text="landingPageData.site.logoText"
-          ></span>
-          <span class="hidden sm:block">
-            <span class="block text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-              University Study Program
+      <div x-data="mobileNav" @keydown.escape.window="close()" class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="flex items-center justify-between gap-4 py-4 lg:gap-8">
+          <a href="#overview" class="group inline-flex items-center gap-3">
+            <span
+              class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-sm font-bold tracking-[0.18em] text-white shadow-sm transition group-hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2"
+              x-text="landingPageData.site.logoText"
+            ></span>
+            <span class="hidden sm:block">
+              <span class="block text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                University Study Program
+              </span>
+              <span class="mt-1 block text-lg font-semibold text-slate-900">
+                <span x-text="landingPageData.site.name"></span>
+              </span>
             </span>
-            <span class="mt-1 block text-lg font-semibold text-slate-900">
-              <span x-text="landingPageData.site.name"></span>
-            </span>
-          </span>
-        </a>
-        <nav aria-label="Primary" class="hidden lg:block">
-          <ul class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
-            <li><a href="#overview" class="transition hover:text-slate-900">Overview</a></li>
-            <li><a href="#why-us" class="transition hover:text-slate-900">Why Us</a></li>
-            <li><a href="#curriculum" class="transition hover:text-slate-900">Curriculum</a></li>
-            <li><a href="#career" class="transition hover:text-slate-900">Career</a></li>
-            <li><a href="#lecturers" class="transition hover:text-slate-900">Lecturers</a></li>
-            <li><a href="#admission" class="transition hover:text-slate-900">Admission</a></li>
-            <li><a href="#faq" class="transition hover:text-slate-900">FAQ</a></li>
-          </ul>
-        </nav>
-        <a
-          href="#admission"
-          class="inline-flex shrink-0 items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2"
+          </a>
+          <nav aria-label="Primary" class="hidden lg:block">
+            <ul class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
+              <li><a href="#overview" class="transition hover:text-slate-900">Overview</a></li>
+              <li><a href="#why-us" class="transition hover:text-slate-900">Why Us</a></li>
+              <li><a href="#curriculum" class="transition hover:text-slate-900">Curriculum</a></li>
+              <li><a href="#career" class="transition hover:text-slate-900">Career</a></li>
+              <li><a href="#lecturers" class="transition hover:text-slate-900">Lecturers</a></li>
+              <li><a href="#admission" class="transition hover:text-slate-900">Admission</a></li>
+              <li><a href="#faq" class="transition hover:text-slate-900">FAQ</a></li>
+            </ul>
+          </nav>
+          <div class="flex items-center gap-3">
+            <a
+              href="#admission"
+              class="hidden shrink-0 items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 sm:inline-flex"
+            >
+              Apply Now
+            </a>
+            <button
+              type="button"
+              @click="toggle()"
+              :aria-expanded="isOpen.toString()"
+              aria-controls="mobile-navigation"
+              class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white p-3 text-slate-700 shadow-sm transition hover:border-slate-400 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 lg:hidden"
+            >
+              <span class="sr-only">Toggle navigation menu</span>
+              <span aria-hidden="true" class="flex h-4 w-4 flex-col justify-between">
+                <span class="block h-0.5 w-full rounded-full bg-current"></span>
+                <span class="block h-0.5 w-full rounded-full bg-current"></span>
+                <span class="block h-0.5 w-full rounded-full bg-current"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          id="mobile-navigation"
+          x-cloak
+          x-show="isOpen"
+          @click.outside="close()"
+          class="pb-4 lg:hidden"
         >
-          Apply Now
-        </a>
+          <nav aria-label="Mobile Primary" class="rounded-3xl border border-slate-200 bg-white p-4 shadow-lg">
+            <ul class="space-y-1 text-base font-medium text-slate-700">
+              <li>
+                <a href="#overview" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  Overview
+                </a>
+              </li>
+              <li>
+                <a href="#why-us" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  Why Us
+                </a>
+              </li>
+              <li>
+                <a href="#curriculum" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  Curriculum
+                </a>
+              </li>
+              <li>
+                <a href="#career" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  Career
+                </a>
+              </li>
+              <li>
+                <a href="#lecturers" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  Lecturers
+                </a>
+              </li>
+              <li>
+                <a href="#admission" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  Admission
+                </a>
+              </li>
+              <li>
+                <a href="#faq" @click="onNavItemClick()" class="block rounded-2xl px-4 py-3 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-inset">
+                  FAQ
+                </a>
+              </li>
+              <li class="pt-2">
+                <a
+                  href="#admission"
+                  @click="onNavItemClick()"
+                  class="block rounded-full bg-slate-900 px-4 py-3 text-center font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2"
+                >
+                  Apply Now
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 

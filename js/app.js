@@ -49,7 +49,22 @@ document.addEventListener("alpine:init", () => {
     },
   }));
   Alpine.data("stickyHeader", stickyHeader);
-  Alpine.data("mobileNav", createComponent({ isOpen: false }));
+  Alpine.data("mobileNav", () => ({
+    landingPageData: getLandingPageData(),
+    isOpen: false,
+    open() {
+      this.isOpen = true;
+    },
+    close() {
+      this.isOpen = false;
+    },
+    toggle() {
+      this.isOpen = !this.isOpen;
+    },
+    onNavItemClick() {
+      this.close();
+    },
+  }));
   Alpine.data("stickyCta", createComponent());
   Alpine.data("videoModal", createComponent({ isOpen: false, activeVideo: null }));
   Alpine.data("bentoGrid", createComponent());
