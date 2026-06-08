@@ -1,6 +1,18 @@
 document.addEventListener("alpine:init", () => {
   const getLandingPageData = () => window.landingPageData ?? window.siteData ?? {};
   const announcementDismissedKey = "landing-page-announcement-dismissed";
+  const stickyHeader = () => ({
+    landingPageData: getLandingPageData(),
+    isScrolled: false,
+    init() {
+      const updateState = () => {
+        this.isScrolled = window.scrollY > 8;
+      };
+
+      updateState();
+      window.addEventListener("scroll", updateState, { passive: true });
+    },
+  });
 
   const createComponent = (state = {}) => () => ({
     landingPageData: getLandingPageData(),
@@ -36,6 +48,7 @@ document.addEventListener("alpine:init", () => {
       }
     },
   }));
+  Alpine.data("stickyHeader", stickyHeader);
   Alpine.data("mobileNav", createComponent({ isOpen: false }));
   Alpine.data("stickyCta", createComponent());
   Alpine.data("videoModal", createComponent({ isOpen: false, activeVideo: null }));

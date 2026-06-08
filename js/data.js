@@ -1,6 +1,7 @@
 window.landingPageData = {
   site: {
     name: "University Study Program Landing Page",
+    logoText: "UniStudy",
     tagline: "Placeholder site copy for an editable landing page scaffold.",
     description:
       "Placeholder content only. Replace with approved program information before publishing.",

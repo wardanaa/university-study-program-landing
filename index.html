@@ -15,6 +15,12 @@
     <script defer src="./js/app.js"></script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg"
+    >
+      Skip to content
+    </a>
     <section
       x-data="announcementBar"
       x-cloak
@@ -49,31 +55,47 @@
       </div>
     </section>
 
-    <header class="border-b border-slate-200 bg-white">
-      <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5">
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-            University Study Program
-          </p>
-          <p class="mt-1 text-lg font-semibold text-slate-900">Program Landing Page</p>
-        </div>
-        <nav aria-label="Primary">
-          <ul class="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#curriculum">Curriculum</a></li>
-            <li><a href="#career">Career</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#lecturers">Lecturers</a></li>
-            <li><a href="#alumni">Alumni</a></li>
-            <li><a href="#admission">Admission</a></li>
-            <li><a href="#faq">FAQ</a></li>
+    <header
+      x-data="stickyHeader"
+      :class="isScrolled ? 'border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-md' : 'border-transparent bg-transparent'"
+      class="sticky top-0 z-50 border-b transition-colors duration-200"
+    >
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:gap-8">
+        <a href="#overview" class="group inline-flex items-center gap-3">
+          <span
+            class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-sm font-bold tracking-[0.18em] text-white shadow-sm transition group-hover:bg-slate-800"
+            x-text="landingPageData.site.logoText"
+          ></span>
+          <span class="hidden sm:block">
+            <span class="block text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+              University Study Program
+            </span>
+            <span class="mt-1 block text-lg font-semibold text-slate-900">
+              <span x-text="landingPageData.site.name"></span>
+            </span>
+          </span>
+        </a>
+        <nav aria-label="Primary" class="hidden lg:block">
+          <ul class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
+            <li><a href="#overview" class="transition hover:text-slate-900">Overview</a></li>
+            <li><a href="#why-us" class="transition hover:text-slate-900">Why Us</a></li>
+            <li><a href="#curriculum" class="transition hover:text-slate-900">Curriculum</a></li>
+            <li><a href="#career" class="transition hover:text-slate-900">Career</a></li>
+            <li><a href="#lecturers" class="transition hover:text-slate-900">Lecturers</a></li>
+            <li><a href="#admission" class="transition hover:text-slate-900">Admission</a></li>
+            <li><a href="#faq" class="transition hover:text-slate-900">FAQ</a></li>
           </ul>
         </nav>
+        <a
+          href="#admission"
+          class="inline-flex shrink-0 items-center justify-center rounded-full bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2"
+        >
+          Apply Now
+        </a>
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section id="overview" aria-labelledby="hero-title" class="border-b border-slate-200">
         <div class="mx-auto max-w-7xl px-6 py-20">
           <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
