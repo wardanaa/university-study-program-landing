@@ -6,6 +6,7 @@ window.landingPageData = {
       "Placeholder content only. Replace with approved program information before publishing.",
   },
   announcement: {
+    enabled: true,
     label: "Announcement",
     text: "Placeholder announcement copy. No verified updates are included here.",
     linkText: "Learn more",
