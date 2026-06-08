@@ -15,19 +15,152 @@
     <script defer src="./js/app.js"></script>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900">
-    <main class="mx-auto flex min-h-screen max-w-5xl items-center justify-center px-6 py-16">
-      <section class="w-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-        <p class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
-          Study Program Landing Page
-        </p>
-        <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          Project scaffold is ready.
-        </h1>
-        <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
-          Tailwind CSS and Alpine.js are loaded via CDN, and the base structure
-          is organized for content development.
-        </p>
+    <section aria-label="Announcement Bar" class="border-b border-slate-200 bg-slate-100">
+      <div class="mx-auto max-w-7xl px-6 py-3 text-sm text-slate-600">
+        Announcement bar placeholder.
+      </div>
+    </section>
+
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+            University Study Program
+          </p>
+          <p class="mt-1 text-lg font-semibold text-slate-900">Program Landing Page</p>
+        </div>
+        <nav aria-label="Primary">
+          <ul class="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#curriculum">Curriculum</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#lecturers">Lecturers</a></li>
+            <li><a href="#alumni">Alumni</a></li>
+            <li><a href="#admission">Admission</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="overview" aria-labelledby="hero-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
+            Hero
+          </p>
+          <h1 id="hero-title" class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            Hero section placeholder
+          </h1>
+        </div>
+      </section>
+
+      <section aria-label="Proof Strip" class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-8">
+          <h2 class="text-lg font-semibold text-slate-900">Proof strip placeholder</h2>
+        </div>
+      </section>
+
+      <section aria-labelledby="program-fit-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="program-fit-title" class="text-3xl font-bold tracking-tight">
+            Program Fit
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="why-us" aria-labelledby="why-us-title" class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="why-us-title" class="text-3xl font-bold tracking-tight">Why Us Bento Grid</h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="curriculum" aria-labelledby="curriculum-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="curriculum-title" class="text-3xl font-bold tracking-tight">
+            Curriculum Journey
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="career" aria-labelledby="career-title" class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="career-title" class="text-3xl font-bold tracking-tight">
+            Career Outcome Explorer
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="projects-title" class="text-3xl font-bold tracking-tight">
+            Student Projects
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="lecturers" aria-labelledby="lecturers-title" class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="lecturers-title" class="text-3xl font-bold tracking-tight">
+            Lecturer Spotlight
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="alumni" aria-labelledby="alumni-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="alumni-title" class="text-3xl font-bold tracking-tight">Alumni Stories</h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="campus-title" class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="campus-title" class="text-3xl font-bold tracking-tight">
+            Campus / Lab Experience
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="admission" aria-labelledby="admission-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="admission-title" class="text-3xl font-bold tracking-tight">
+            Admission Steps
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title" class="border-b border-slate-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="faq-title" class="text-3xl font-bold tracking-tight">FAQ / Help Assistant</h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="final-cta-title" class="border-b border-slate-200">
+        <div class="mx-auto max-w-7xl px-6 py-20">
+          <h2 id="final-cta-title" class="text-3xl font-bold tracking-tight">
+            Final CTA
+          </h2>
+          <p class="mt-4 text-slate-600">Placeholder content.</p>
+        </div>
       </section>
     </main>
+
+    <footer class="bg-slate-900 text-slate-100">
+      <div class="mx-auto max-w-7xl px-6 py-10">
+        <p class="text-sm text-slate-300">Footer placeholder.</p>
+      </div>
+    </footer>
   </body>
 </html>
